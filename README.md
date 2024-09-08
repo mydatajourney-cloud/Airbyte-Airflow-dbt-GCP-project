@@ -11,7 +11,10 @@ Airbyte là một nền tảng mã nguồn mở giúp kết nối và đồng b�
 Khi tạo source mới ta có thể chọn nhiều Source đã được Airbyte build sẵn để dễ dàng thiết lập kết nối. 
 
 ![image](https://github.com/user-attachments/assets/04c8eed2-87ba-44d1-8ba9-01f945ec156d)
-Khi ấn vào một source ta thấy bên trái sẽ là setting cho kết nối: port, databasename, username. Còn bên trái sẽ hướng dẫn về cách setting
+Khi ấn vào một source ta thấy bên trái sẽ là setting cho kết nối: port, databasename, username. Còn bên phải sẽ hướng dẫn về cách setting
 
 ![Screenshot 2024-09-08 073307](https://github.com/user-attachments/assets/335b3442-b352-4c84-a26d-1e03a0266103)
+
+## Cài đặt kết nối tới Destination
+Để cài đặt điểm để chuyển dữ
 
