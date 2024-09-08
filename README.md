@@ -6,8 +6,8 @@ Airbyte là một nền tảng mã nguồn mở giúp kết nối và đồng b�
 
 ## Cài đặt kết nối tới Source 
 Để cài đặt điểm để ingest dữ liệu, ta chọn vào mục source trong giao diện Airbyte. Ta sẽ thấy các source đã được tạo, các source ở đây là các kết nối đã được thiết lập từ airbyte đến source để lấy dữ liệu. 
+![Screenshot 2024-09-08 070235](https://github.com/user-attachments/assets/356c87d0-c8c2-40cb-a814-5e5135582c87)
 
-![image](https://github.com/user-attachments/assets/129235a9-3569-42f2-8d77-d77fe2fe4500)
 Khi tạo source mới ta có thể chọn nhiều Source đã được Airbyte build sẵn để dễ dàng thiết lập kết nối. 
 
 ![image](https://github.com/user-attachments/assets/04c8eed2-87ba-44d1-8ba9-01f945ec156d)
