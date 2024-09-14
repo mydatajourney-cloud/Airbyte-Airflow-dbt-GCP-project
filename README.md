@@ -137,3 +137,123 @@ A **Connection** is a configuration link between a **Source** and a **Destinatio
 ---
 
 This setup guide will help you configure Airbyte's Source, Destination, and Connection settings for a seamless data integration process.
+Airflow grapth top-bottom:
+ 
+ 
+# Cosmos Astro: Setting Up Airflow with dbt, BigQuery, and Airbyte
+
+## Overview
+Cosmos Astro is a powerful plugin for Airflow, designed to simplify the execution and management of workflows that rely on data transformation tools such as **dbt (Data Build Tool)**, **Spark**, and **Snowflake**. It helps manage complex ETL (Extract, Transform, Load) tasks within the Airflow environment, allowing data teams to easily create, manage, and execute data transformation workflows across multiple platforms.
+
+---
+### Step 1: Set Up an Airflow and dbt Project with Cosmos
+1. Ensure that **Astro** is installed on your system.
+2. Run the following command to initialize the Astro project:
+
+    ```bash
+    astro dev init
+    ```
+
+3. Install **Airflow** along with the required libraries:
+
+    ```bash
+    pip install apache-airflow-providers-google apache-airflow[google]
+    ```
+
+4. Install **dbt** with the BigQuery adapter:
+
+    ```bash
+    pip install dbt-bigquery
+    ```
+
+5. Start the Astro project by running:
+
+    ```bash
+    astro dev start
+    ```
+
+---
+
+### Step 2: Set Up Airflow Connections
+
+1. Access the **Airflow UI**.
+2. Navigate to **Admin -> Connections**.
+3. Click on **+ Add a new connection**.
+
+---
+
+### Step 3: Provide BigQuery Connection Information
+1. Set the connection details as follows:
+   - **Conn Id**: Choose a name for the connection (e.g., `bigquery_default`).
+   - **Conn Type**: Select **Google Cloud**.
+   - **Keyfile Path**: Provide the path to the JSON credentials file you downloaded (e.g., `credentials.json`).
+   - **Project ID**: Enter your **Google Cloud Project ID**.
+2. Click **Save** to store the connection.
+
+---
+
+### Step 4: Provide Airbyte Connection Information
+1. Set the connection details as follows:
+   - **Conn Id**: Choose a name for the connection (e.g., `airbyte_default`).
+   - **Conn Type**: Select **HTTP**.
+   - **Host**: Provide the URL for your Airbyte API (e.g., `http://<your-airbyte-url>:8000`).
+   - **Login**: Enter the **API token** or login credentials if required.
+2. Click **Save** to store the connection.
+
+---
+
+### Step 5: Configure the dbt Project
+
+1. Initialize a new **dbt project** to generate the basic structure, including the `dbt_project.yml` file, and the `models`, `seeds`, `macros` directories:
+
+    ```bash
+    dbt init my_dbt_project
+    ```
+
+---
+
+### Step 6: Configure the `dbt_project.yml` File
+1. Configure the models by defining how they will be materialized (e.g., table or view), the schema they belong to, and any relevant tags.
+
+---
+
+### Step 7: Data Modeling
+
+1. **Set Up Directory Structure**: 
+   - Create a directory structure with folders like `staging`, `warehouse`, and `marts` inside the `models` folder.
+   
+2. **Data Modeling**: 
+   - Write SQL to create **staging** tables (named `_stg_`) to hold raw data.
+   - Write SQL to create **warehouse** tables (named `_dim_`) to define the **star schema**.
+   - Write SQL to create **marts** tables (named `_obt_`) to aggregate data.
+
+---
+
+### Step 8: Write DAGs in Airflow
+
+1. **Define the DAG**: 
+   - Set the `dag_id`, default parameters (`default_args`), and scheduling parameters (`schedule_interval`, `start_date`).
+   
+2. **Create Tasks**: 
+   - Create a start task using `DummyOperator`.
+   - Create data ingestion tasks using `AirbyteTriggerSyncOperator` to sync data from sources.
+   - Configure dbt execution with `ExecutionConfig` and `ProfileConfig`.
+   - Create a dbt task group using `DbtTaskGroup`, specifying project, profile, and execution configurations.
+
+3. **Task Ordering**: 
+   - Define the sequence of tasks, starting from the initial task, data ingestion tasks, and finally the dbt task group.
+
+4. **Run the DAGs**: 
+   - Once the DAG is set, you can trigger it to execute the entire data pipeline.
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
