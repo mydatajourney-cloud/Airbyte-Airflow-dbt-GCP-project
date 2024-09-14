@@ -189,6 +189,7 @@ Cosmos Astro is a powerful plugin for Airflow, designed to simplify the executio
    - **Keyfile Path**: Provide the path to the JSON credentials file you downloaded (e.g., `credentials.json`).
    - **Project ID**: Enter your **Google Cloud Project ID**.
 2. Click **Save** to store the connection.
+![image](https://github.com/user-attachments/assets/b80dab92-7d90-4c3b-9b45-79402fbb7b8f)
 
 ---
 
@@ -199,6 +200,7 @@ Cosmos Astro is a powerful plugin for Airflow, designed to simplify the executio
    - **Host**: Provide the URL for your Airbyte API (e.g., `http://<your-airbyte-url>:8000`).
    - **Login**: Enter the **API token** or login credentials if required.
 2. Click **Save** to store the connection.
+![image](https://github.com/user-attachments/assets/0f1f6f77-ef2c-419f-af62-3c91c57bb56d)
 
 ---
 
@@ -209,11 +211,13 @@ Cosmos Astro is a powerful plugin for Airflow, designed to simplify the executio
     ```bash
     dbt init my_dbt_project
     ```
+![Picture9](https://github.com/user-attachments/assets/39507d02-2290-4830-8070-5ab16a1abcb7)
 
 ---
 
 ### Step 6: Configure the `dbt_project.yml` File
 1. Configure the models by defining how they will be materialized (e.g., table or view), the schema they belong to, and any relevant tags.
+![image](https://github.com/user-attachments/assets/bbc8d20d-5d04-4ac0-91cf-31f5a0dd8716)
 
 ---
 
@@ -226,6 +230,7 @@ Cosmos Astro is a powerful plugin for Airflow, designed to simplify the executio
    - Write SQL to create **staging** tables (named `_stg_`) to hold raw data.
    - Write SQL to create **warehouse** tables (named `_dim_`) to define the **star schema**.
    - Write SQL to create **marts** tables (named `_obt_`) to aggregate data.
+![image](https://github.com/user-attachments/assets/ea239909-bb3f-430b-8eb9-401e2b943340)
 
 ---
 
@@ -245,8 +250,9 @@ Cosmos Astro is a powerful plugin for Airflow, designed to simplify the executio
 
 4. **Run the DAGs**: 
    - Once the DAG is set, you can trigger it to execute the entire data pipeline.
+   
+ ![image](https://github.com/user-attachments/assets/0700716a-dc4e-4bb2-957e-86a6608028a6)
 
- 
  
  
  
