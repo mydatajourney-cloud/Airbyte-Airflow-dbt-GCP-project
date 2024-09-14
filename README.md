@@ -230,7 +230,7 @@ Cosmos Astro is a powerful plugin for Airflow, designed to simplify the executio
    - Write SQL to create **staging** tables (named `_stg_`) to hold raw data.
    - Write SQL to create **warehouse** tables (named `_dim_`) to define the **star schema**.
    - Write SQL to create **marts** tables (named `_obt_`) to aggregate data.
-![image](https://github.com/user-attachments/assets/ea239909-bb3f-430b-8eb9-401e2b943340)
+![Picture11](https://github.com/user-attachments/assets/90d735cb-a42a-466e-bac5-9f2d289862d9)
 
 ---
 
