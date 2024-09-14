@@ -1,87 +1,129 @@
-# Airbyte-projects
-Airbyte
--Source: tính năng Source trong Airbyte là thành phần kết nối và trích xuất dữ liệu từ các nguồn dữ liệu khác nhau như cơ sở dữ liệu, dịch vụ web, hoặc ứng dụng. Source chịu trách nhiệm thiết lập kết nối, cấu hình truy vấn, và đồng bộ hóa dữ liệu để cung cấp dữ liệu cho các quy trình tiếp theo trong hệ thống tích hợp của Airbyte.
-![Picture1](https://github.com/user-attachments/assets/0e6b156d-8acc-4a65-9cd0-07b627eac8a4)
+# Airbyte Projects
 
-Để thiết lập một kết nối Source tới MySQL trong Airbyte, bạn có thể làm theo các bước sau:
-Bước 1: Tạo một Source mới
-1.Trên trang chính của Airbyte, nhấp vào “Sources” trong menu điều hướng.
-2.Nhấp vào nút “+ New Source” hoặc “Add Source”.
-![image](https://github.com/user-attachments/assets/86051a4b-9fa0-47f1-96ca-bbca38aeb054)
+## Airbyte Overview
+Airbyte is an open-source data integration platform that helps you sync data between various sources and destinations.
 
-Bước 2: Chọn MySQL làm loại nguồn dữ liệu
-1.Trong danh sách các nguồn dữ liệu, chọn “MySQL”.
-![image](https://github.com/user-attachments/assets/21a71df1-3646-4b99-9bc8-1a455ea98b2f)
+### Source
+The **Source** feature in Airbyte is responsible for connecting and extracting data from various sources like databases, web services, or applications. The source handles:
+- Establishing the connection
+- Query configuration
+- Synchronizing data to provide it to the integration system.
 
-Bước 3: Cung cấp thông tin kết nối
-1.Điền các thông tin cần thiết vào biểu mẫu cấu hình nguồn MySQL:
-1.Host: Địa chỉ IP hoặc tên miền của máy chủ MySQL.
-2.Port: Cổng mà MySQL đang lắng nghe (mặc định là 3306).
-3.Database: Tên cơ sở dữ liệu mà bạn muốn kết nối.
-4.Username: Tên người dùng để kết nối vào cơ sở dữ liệu MySQL.
-5.Password: Mật khẩu tương ứng với tên người dùng.
-6.Additional Parameters (tùy chọn): Cung cấp bất kỳ tham số bổ sung nào nếu cần (ví dụ: mã hóa SSL).
+---
 
-Bước 4: Lưu cấu hình
-1.Nếu kết nối thành công, nhấp vào “Set up source” hoặc “Save” để lưu cấu hình nguồn dữ liệu
+## How to Set Up a MySQL Source in Airbyte
 
-- Destination: tính năng Destination trong Airbyte là thành phần chịu trách nhiệm lưu trữ và xử lý dữ liệu sau khi được trích xuất từ các nguồn dữ liệu. Nó kết nối với các hệ thống lưu trữ, cơ sở dữ liệu, hoặc kho dữ liệu (như BigQuery, Snowflake, hoặc Amazon Redshift) để nhận và lưu trữ dữ liệu, đồng thời hỗ trợ các tùy chọn cấu hình như xác định dataset, cấu trúc bảng, và phương thức đồng bộ hóa 
-Để thiết lập một kết nối Destination tới BigQuery trong Airbyte, hãy thực hiện theo các bước sau:
-Bước 1: Truy cập Airbyte
-1.Mở trình duyệt web và đăng nhập vào giao diện quản lý Airbyte.
-![Picture2](https://github.com/user-attachments/assets/db635b4e-1bb8-4fc5-9b77-8a7b36523f5e)
+### Step 1: Create a New Source
+1. On the Airbyte main page, click on **Sources** from the navigation menu.
+2. Click on **+ New Source** or **Add Source**.
 
-Bước 2: Tạo một Destination mới
-1.Trên trang chính của Airbyte, nhấp vào “Destinations” trong menu điều hướng.
-2.Nhấp vào nút “+ New Destination” hoặc “Add Destination”.
-3.Trong danh sách các đích dữ liệu, chọn “BigQuery”.
-![image](https://github.com/user-attachments/assets/909ac9dc-74b7-46ba-a229-eec305957359)
+![Airbyte Add Source](https://github.com/user-attachments/assets/0e6b156d-8acc-4a65-9cd0-07b627eac8a4)
 
-Bước 3: Cung cấp thông tin cấu hình BigQuery
-1.Điền các thông tin cần thiết vào biểu mẫu cấu hình đích BigQuery:
-1.Project ID: ID của dự án Google Cloud nơi BigQuery được cấu hình.
-2.Dataset: Tên dataset mà bạn muốn lưu dữ liệu vào trong BigQuery.
-3.JSON Key File: Tải lên tệp JSON chứa khóa dịch vụ của tài khoản Google Cloud có quyền truy cập vào BigQuery. (Tệp này có thể được tạo từ Google Cloud Console).
-![image](https://github.com/user-attachments/assets/379ead50-1407-41d2-b548-5b26b530ed5c)
+### Step 2: Select MySQL as the Data Source
+1. From the list of available data sources, select **MySQL**.
 
-Bước 4: Lưu cấu hình
-1.Nếu kết nối thành công, nhấp vào “Set up destination” hoặc “Save” để lưu cấu hình đích dữ liệu.
--Connection: là một cấu hình liên kết giữa một Source (nguồn dữ liệu) và một Destination (đích dữ liệu), cho phép truyền tải và đồng bộ hóa dữ liệu từ nguồn đến đích. Tính năng này cho phép bạn thiết lập các chế độ đồng bộ hóa (như full refresh hoặc incremental), cấu hình các tùy chọn đồng bộ hóa như tần suất và khóa chính, và quản lý cách dữ liệu được chuyển giao giữa các hệ thống.
-Để thiết lập một kết nối Connection hãy làm theo các bước sau:
-Bước 1: Truy cập Airbyte
-1.Mở trình duyệt web và đăng nhập vào giao diện quản lý Airbyte.
-![Picture3](https://github.com/user-attachments/assets/0180224c-5588-46d5-bcb7-f6eef484e49b)
+![MySQL Selection](https://github.com/user-attachments/assets/21a71df1-3646-4b99-9bc8-1a455ea98b2f)
 
+### Step 3: Provide Connection Information
+1. Fill in the required details in the MySQL source configuration form:
+   - **Host**: IP address or domain name of the MySQL server.
+   - **Port**: The port where MySQL is listening (default is 3306).
+   - **Database**: The name of the database you want to connect to.
+   - **Username**: Username to access the MySQL database.
+   - **Password**: Password for the corresponding username.
+   - **Additional Parameters (Optional)**: Provide any additional parameters like SSL encryption if needed.
 
-Bước 2: Tạo một Connection mới
-1.Trên trang chính của Airbyte, nhấp vào “Connections” trong menu điều hướng.
-2.Nhấp vào nút “+ New Connection” hoặc “Add Connection”.
-Bước 3: Chọn Source và Destination
-1.Trong phần cấu hình Connection, chọn Source và Destination từ danh sách các nguồn và đích đã được tạo trước đó.
-1.Source: Chọn nguồn dữ liệu mà bạn đã cấu hình trước đó.
-![Picture4](https://github.com/user-attachments/assets/80a08b17-5aa1-40ac-a885-95a330ac64ad)
+### Step 4: Save the Configuration
+1. If the connection is successful, click on **Set up source** or **Save** to save the source configuration.
 
-2.Destination: Chọn đích dữ liệu mà bạn đã cấu hình trước đó.
-![Picture5](https://github.com/user-attachments/assets/2ee404a1-76fb-4319-929a-264008ea2e3f)
+---
 
-Bước 4: Cấu hình đồng bộ hóa dữ liệu
-1.Configure Sync Options:
-1.Sync Mode: Chọn chế độ đồng bộ hóa dữ liệu “Append Historical Changes” và chọn “Append New Rows and Updates Only” 
-![Picture6](https://github.com/user-attachments/assets/1147879c-36ea-4fa4-92cb-5c24d168267f)
+## Destination
+The **Destination** feature in Airbyte handles receiving and storing the extracted data from the source into storage systems or databases like BigQuery, Snowflake, or Amazon Redshift. It allows configuration options such as:
+- Specifying datasets
+- Structuring tables
+- Configuring sync methods
 
-2.Field Mapping:
-1.Chọn schema: Chọn các toàn bộ các table đưa vào BigQuery bằng cách ấn vào nút “Sync”
-![Picture7](https://github.com/user-attachments/assets/6c3963c1-f051-441f-8470-23804e30076b)
+---
 
-Bước 5: Xem trước và kiểm tra kết nối
-1.Setup Sync Frequency: Chọn tần suất đồng bộ hóa (ví dụ: theo lịch trình hàng ngày, hàng giờ, hoặc đồng bộ hóa theo yêu cầu).
-![Picture7](https://github.com/user-attachments/assets/4bc29415-02d6-4d04-bbc1-97a4fd90afe7)
+## How to Set Up a BigQuery Destination in Airbyte
 
-2.Test Connection: (Tùy chọn) Kiểm tra kết nối để xác nhận rằng dữ liệu có thể được đồng bộ hóa từ Source đến Destination thành công.
-Bước 7: Lưu và kích hoạt Connection
-1.Nhấp vào “Save” hoặc “Create Connection” để lưu cấu hình.
-2.Start Sync: Nếu bạn đã cấu hình tần suất đồng bộ hóa, kết nối sẽ tự động bắt đầu theo lịch trình. Bạn cũng có thể nhấp vào “Manual Sync” để thực hiện đồng bộ hóa ngay lập tức
- 
+### Step 1: Access Airbyte
+1. Open your browser and log in to the Airbyte interface.
 
+![Airbyte UI](https://github.com/user-attachments/assets/db635b4e-1bb8-4fc5-9b77-8a7b36523f5e)
 
+### Step 2: Create a New Destination
+1. From the Airbyte main page, click on **Destinations** from the navigation menu.
+2. Click on **+ New Destination** or **Add Destination**.
+3. From the list of destinations, select **BigQuery**.
 
+![BigQuery Selection](https://github.com/user-attachments/assets/909ac9dc-74b7-46ba-a229-eec305957359)
+
+### Step 3: Provide BigQuery Configuration Information
+1. Fill in the required details for the BigQuery destination:
+   - **Project ID**: The Google Cloud project ID where BigQuery is set up.
+   - **Dataset**: The name of the dataset you want to store the data in.
+   - **JSON Key File**: Upload the JSON file that contains the service account credentials for accessing BigQuery. (You can generate this file from the Google Cloud Console).
+
+![BigQuery Config](https://github.com/user-attachments/assets/379ead50-1407-41d2-b548-5b26b530ed5c)
+
+### Step 4: Save the Configuration
+1. Once the connection is successful, click on **Set up destination** or **Save**.
+
+---
+
+## Connection
+A **Connection** is a configuration link between a **Source** and a **Destination**, allowing data transfer and synchronization between them. It lets you:
+- Configure sync modes (e.g., full refresh, incremental sync)
+- Set sync frequency and primary keys
+- Manage how data flows between systems
+
+---
+
+## How to Set Up a Connection in Airbyte
+
+### Step 1: Access Airbyte
+1. Open your browser and log in to the Airbyte interface.
+
+![Airbyte UI](https://github.com/user-attachments/assets/0180224c-5588-46d5-bcb7-f6eef484e49b)
+
+### Step 2: Create a New Connection
+1. From the Airbyte main page, click on **Connections** in the navigation menu.
+2. Click on **+ New Connection** or **Add Connection**.
+
+### Step 3: Select Source and Destination
+1. In the Connection setup, select the **Source** and **Destination** from the pre-configured list:
+   - **Source**: Choose the previously configured MySQL source.
+   
+   ![Source Selection](https://github.com/user-attachments/assets/80a08b17-5aa1-40ac-a885-95a330ac64ad)
+
+   - **Destination**: Choose the previously configured BigQuery destination.
+
+   ![Destination Selection](https://github.com/user-attachments/assets/2ee404a1-76fb-4319-929a-264008ea2e3f)
+
+### Step 4: Configure Data Sync
+1. **Sync Mode**: Choose the sync mode:
+   - **Append Historical Changes**
+   - **Append New Rows and Updates Only**
+
+   ![Sync Mode](https://github.com/user-attachments/assets/1147879c-36ea-4fa4-92cb-5c24d168267f)
+
+2. **Field Mapping**: Select the schema and tables you want to sync to BigQuery, then click **Sync**.
+
+   ![Field Mapping](https://github.com/user-attachments/assets/6c3963c1-f051-441f-8470-23804e30076b)
+
+### Step 5: Preview and Test the Connection
+1. **Sync Frequency**: Choose the sync frequency (e.g., daily, hourly, or manual sync).
+
+   ![Sync Frequency](https://github.com/user-attachments/assets/4bc29415-02d6-4d04-bbc1-97a4fd90afe7)
+
+2. **Test Connection**: (Optional) Test the connection to ensure data can be synced successfully.
+
+### Step 6: Save and Activate Connection
+1. Click **Save** or **Create Connection** to store the configuration.
+2. **Start Sync**: The sync will automatically start based on the set frequency. You can also manually trigger the sync by clicking **Manual Sync**.
+
+---
+
+This setup guide will help you configure Airbyte's Source, Destination, and Connection settings for a seamless data integration process.
