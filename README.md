@@ -1,9 +1,19 @@
-# Airbyte-Airflow-dbt-GCP Projects
+# Project Overview: Building a Cost-Effective Data Pipeline for Batch Streaming on GCP
 
-## Airbyte Overview
-Airbyte is an open-source data integration platform that helps you sync data between various sources and destinations.
+## Objective
+The goal of this project is to design and implement a cost-effective data pipeline on Google Cloud Platform (GCP) for batch streaming. The pipeline will extract data from a MySQL database, process it, and load it into BigQuery for analytics, utilizing a combination of **Airbyte**, **Cloud Storage**, **Airflow**, and **dbt**.
 
-### Source
+## Components
+- **MySQL Database** (Data Source)
+- **Airbyte** (Data Ingestion)
+- **Cloud Storage** (Temporary Storage Layer)
+- **Apache Airflow** (Workflow Orchestration)
+- **dbt** (Data Transformation)
+- **BigQuery** (Data Warehouse)
+
+---
+
+## Source
 The **Source** feature in Airbyte is responsible for connecting and extracting data from various sources like databases, web services, or applications. The source handles:
 - Establishing the connection
 - Query configuration
